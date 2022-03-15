@@ -1,8 +1,18 @@
 from typing import List, Tuple, Optional
 
-def two_sum(arr: List[int], target_sum: int) -> Optional[Tuple[int, int]]:
-    # Здесь реализация вашего решения
-    pass
+def two_sum(numbers: List[int], X: int) -> Optional[Tuple[int, int]]:
+        # Создаём вспомогательную структуру данных с быстрым поиском элемента.
+    previous = set()
+
+    for A in numbers:
+        Y = X - A
+        if Y in previous:
+            return A, Y
+        else:
+            previous.add(A)
+
+    # Если ничего не нашлось в цикле, значит, нужной пары элементов в массиве нет.
+    return None
 
 def read_input() -> Tuple[List[int], int]:
     n = int(input())

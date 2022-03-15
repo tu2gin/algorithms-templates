@@ -1,8 +1,14 @@
 from typing import List, Tuple, Optional
 
-def two_sum(arr: List[int], target_sum: int) -> Optional[Tuple[int, int]]:
-    # Здесь реализация вашего решения
-    pass
+def twosum(numbers, X):
+    for i in range(0, len(numbers)):
+        for j in range(i+1, len(numbers)):
+            if numbers[i] + numbers[j] == X:
+                return numbers[i], numbers[j]
+    # По условию задачи пара обязательно должна найтись.
+    # Но предусмотрительность не помешает:
+    # если пара не найдена - вернём None, None (или можно выкинуть exception). 
+    return None, None 
 
 def read_input() -> Tuple[List[int], int]:
     n = int(input())
@@ -17,4 +23,15 @@ def print_result(result: Optional[Tuple[int, int]]) -> None:
         print(" ".join(map(str, result)))
 
 arr, target_sum = read_input()
-print_result(two_sum(arr, target_sum))
+print_result(twosum(arr, target_sum))
+
+
+# Ввод
+#  
+# 6
+# -1 -1 -9 -7 3 -6
+# 2
+
+# Вывод
+# 
+# -1 3
