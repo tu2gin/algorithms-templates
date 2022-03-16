@@ -17,8 +17,12 @@
 # Выведите «True», если фраза является палиндромом, и «False», 
 # если не является.
 
-def is_palindrome(line: str) -> bool:
-    # Здесь реализация вашего решения
-    pass
+def palindrome(word: str) -> bool:
+    word_rev = word[::-1]
+    result = False
+    if word == word_rev:
+        result = True
+    
+    return result
 
-print(is_palindrome(input().strip()))
+print(palindrome(input().strip()))

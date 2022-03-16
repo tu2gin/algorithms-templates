@@ -4,8 +4,8 @@ def zero_index(data):
     print('----------')
     result_list = [0]*len(data)
     print(data)
-    index_zeros = [i for i in range(len(data)) if data[i] == 0]
-    print(index_zeros)
+    index_zero = [i for i in range(len(data)) if data[i] == 0]
+    print(index_zero)
     n = 1
     for i in range(0,len(data)):
         dist_ind = data[i]
@@ -30,17 +30,20 @@ print(zero_index(str_list))
 
 # print('zero_index(1 0 9 4 8 3)')
 dist_str = '1 0 9 4 8 3'
-dist = dist_str.split(' ')
+dist_list = dist_str.split(' ')
+dist = list(map(int, dist_list))
 print(zero_index(dist))
 
 # print('zero_index(5 0 9 0 8 2)')
 dist_str = '5 0 9 0 8 2'
-dist = dist_str.split(' ')
+dist_list = dist_str.split(' ')
+dist = list(map(int, dist_list))
 print(zero_index(dist))
 
 # print('zero_index(2 1 4 9 0 5)')
 dist_str = '2 1 4 9 0 5'
-dist = int(dist_str.split(' '))
+dist_list = dist_str.split(' ')
+dist = list(map(int, dist_list))
 print(zero_index(dist))
 
 # 0 7 9 4 8 3

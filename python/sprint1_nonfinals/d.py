@@ -24,18 +24,26 @@
 
 # Выведите единственное число — хаотичность за данный период.
 
-from turtle import rt
 from typing import List
 
 def get_weather_randomness(temperatures: List[int]) -> int:
-    # Здесь реализация вашего решения
-    result = ''
-    for i in (range(1,(len(temperatures))-1)):
-        if result == '':
+    n = 0
+    len_temp = len(temperatures)
+    if len_temp == 1:
+        n = 1
+        return n
+    for i in (range(0,len_temp)):
+        if i == 0:
+            if temperatures[i+1]<temperatures[i]:
+                n = n + 1
+        elif i == len(temperatures)-1:
+            if temperatures[i-1]<temperatures[i]:
+                n = n + 1
+        else:
             if ((temperatures[i-1]<temperatures[i])
-                or (temperatures[i+1]<temperatures[i])):
-                result = i
-    return result
+            and (temperatures[i+1]<temperatures[i])):
+                n = n + 1
+    return n
 
 def read_input() -> List[int]:
     n = int(input())
@@ -44,3 +52,12 @@ def read_input() -> List[int]:
 
 temperatures = read_input()
 print(get_weather_randomness(temperatures))
+
+# temp = [-1, -10, -8, 0, 2, 0, 5]
+# print(get_weather_randomness(temp))
+
+# temp = [1, 2, 5, 4, 8]
+# print(get_weather_randomness(temp))
+
+# temp = [-1, -10, -8, 0, 2, 0, 5]
+# print(get_weather_randomness(temp))
